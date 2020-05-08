@@ -1,0 +1,26 @@
+﻿@inherits LayoutComponentBase
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+<div class="alert alert-info d-flex justify-content-center fixed-bottom">
+	<p class="mr-2">RouteData: @routeData?.PageType.Name </p>
+	@foreach (var item in @routeData?.RouteValues)
+	{
+		<p class="mr-2 border-info">@item.Key : @item.Value</p>
+	}
+	</div>
+@code
+{
+		[CascadingParameter] public RouteData routeData { get; set; }
+}
