@@ -11,6 +11,11 @@
 		[Parameter] public int Start { get; set; }
 		private int currentCount = 0;
 
+		protected override Task OnInitializedAsync()
+		{
+			return base.OnInitializedAsync();
+		}
+
 		protected override void OnParametersSet()
 		{
 			base.OnParametersSet();
